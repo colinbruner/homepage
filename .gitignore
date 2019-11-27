@@ -1,0 +1,10 @@
+homepage/public/*
+homepage/resources/*
+**/themes/
+demo/
+.hugo/*
+!.hugo/version
+
+nginx/colinbruner*
+!nginx/colinbruner.pem.gpg
+!nginx/colinbruner.key.gpg

@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web:
+    image: cbruner/homepage
+    deploy:
+      replicas: 5
+      placement:
+        max_replicas_per_node: 1
+    ports:
+      - "80:80"
+      - "443:443"
