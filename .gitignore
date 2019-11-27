@@ -1,6 +1,5 @@
 homepage/public/*
 homepage/resources/*
-**/themes/
 demo/
 .hugo/*
 !.hugo/version
