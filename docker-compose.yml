@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   web:
-    image: cbruner/homepage
+    image: cbruner/homepage:arm
     deploy:
       replicas: 5
       placement:

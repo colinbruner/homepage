@@ -12,6 +12,7 @@ fi
 docker stop homepage &>/dev/null && docker rm homepage &>/dev/null
 
 docker container run \
+	-d \
         -p 443:443 \
         -p 80:80 \
         --name "homepage" \

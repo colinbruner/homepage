@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "unlocking colinbruner.key"
-gpg -o colinbruner.key -d colinbruner.key.gpg
+echo "unlocking key.pem"
+gpg -o keypem -d key.pem.gpg
 
-echo "unlocking colinbruner.pem"
-gpg -o colinbruner.pem -d colinbruner.pem.gpg
+echo "unlocking cert.pem"
+gpg -o cert.pem -d cert.pem.gpg

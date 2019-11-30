@@ -22,8 +22,8 @@ RUN /usr/bin/hugo
 
 FROM nginx:alpine
 
-COPY nginx/colinbruner.pem /etc/nginx/colinbruner.pem
-COPY nginx/colinbruner.key /etc/nginx/colinbruner.key
+COPY nginx/cert.pem /etc/ssl/certs/cert.pem
+COPY nginx/key.pem /etc/ssl/private/key.pem
 
 COPY --from=build /homepage/public /srv/public
 

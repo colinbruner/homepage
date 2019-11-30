@@ -4,6 +4,6 @@ demo/
 .hugo/*
 !.hugo/version
 
-nginx/colinbruner*
-!nginx/colinbruner.pem.gpg
-!nginx/colinbruner.key.gpg
+nginx/*pem*
+!nginx/key.pem.gpg
+!nginx/cert.pem.gpg
