@@ -1,7 +1,7 @@
 FROM alpine:3.7 as build
 
-ENV HUGO_VERSION 0.59.1
-ENV HUGO_BINARY hugo_${HUGO_VERSION}_Linux-64bit.tar.gz
+ENV HUGO_VERSION 0.63.2
+ENV HUGO_BINARY hugo_extended_${HUGO_VERSION}_Linux-ARM.tar.gz
 
 # Install Hugo
 RUN set -x && \

@@ -1,9 +1,9 @@
 FROM arm32v7/alpine:3.10.3 as build
 
-ENV HUGO_VERSION 0.59.1
+ENV HUGO_VERSION 0.63.2
 ENV HUGO_BINARY hugo_${HUGO_VERSION}_Linux-ARM.tar.gz
 
-# Install Hugo
+# Install Hugo binary
 RUN set -x && \
   apk add --update wget ca-certificates && \
   wget https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/${HUGO_BINARY} && \
