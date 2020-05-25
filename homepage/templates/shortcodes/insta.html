@@ -1,9 +1,0 @@
-<link rel="stylesheet" href={{ get_url(path="insta.css") }}>
-
-<section id="photos">
-{% for asset in page.assets %}
-  {% if asset is matching("[.](jpg|png)$") %}
-    <img src="{{ resize_image(path=asset, width=240, height=180, op="fill") }}" alt="">
-  {% endif %}
-{% endfor %}
-</section>

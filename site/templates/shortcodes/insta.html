@@ -1,0 +1,12 @@
+
+<section class="grid">
+{% for asset in page.assets %}
+  {% if asset is matching("[.](jpg|png)$") %}
+  <div>
+    <a href="{{ get_url(path=asset) }}">
+      <img src="{{ resize_image(path=asset, width=960, height=720, op="fill") }}" alt="">
+    </a>
+  </div>
+  {% endif %}
+{% endfor %}
+</section>
