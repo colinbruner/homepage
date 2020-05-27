@@ -1,9 +1,3 @@
-homepage/public/*
-homepage/resources/*
-demo/
-.hugo/*
-!.hugo/version
+site/public/*
 
-nginx/*pem*
-!nginx/key.pem.gpg
-!nginx/cert.pem.gpg
+nginx/*pem

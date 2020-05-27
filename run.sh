@@ -8,12 +8,10 @@ if [[ "$ARCH" =~ "arm"* ]]; then
         VERSION="arm"
 fi
 
-# brute force
-docker stop homepage &>/dev/null && docker rm homepage &>/dev/null
-
-docker container run \
-	-d \
-        -p 443:443 \
+# Local development/testing
+docker run \
+        --rm \
+	-it \
         -p 80:80 \
-        --name "homepage" \
-        cbruner/homepage:${VERSION}
+        -p 443:443 \
+        colinbruner/homepage:${VERSION}
