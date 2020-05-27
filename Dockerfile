@@ -8,11 +8,12 @@ FROM zola-base as builder
 COPY site /site
 RUN zola build
 
-#FROM arm32v7/nginx:stable
-FROM nginx:stable-alpine
+#COPY nginx/config/dev.conf /etc/nginx/conf.d/default.conf
+#FROM nginx:stable-alpine
+FROM arm32v7/nginx:stable
 COPY --from=builder /site/public /srv/public
 COPY nginx/cert.pem /etc/ssl/certs/cert.pem
 COPY nginx/key.pem /etc/ssl/private/key.pem
-#COPY nginx/config/prod.conf /etc/nginx/conf.d/default.conf
-COPY nginx/config/dev.conf /etc/nginx/conf.d/default.conf
+COPY nginx/config/prod.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
+EXPOSE 443
