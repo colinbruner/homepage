@@ -9,11 +9,9 @@ COPY site /site
 RUN zola build
 
 #COPY nginx/config/dev.conf /etc/nginx/conf.d/default.conf
-#FROM nginx:stable-alpine
 FROM arm32v7/nginx:stable
 COPY --from=builder /site/public /srv/public
-COPY nginx/cert.pem /etc/ssl/certs/cert.pem
-COPY nginx/key.pem /etc/ssl/private/key.pem
+RUN mkdir -p /etc/nginx/secrets
 COPY nginx/config/prod.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
 EXPOSE 443
