@@ -2,4 +2,4 @@
 
 VERSION=${1:-latest}
 
-docker build colinbruner/homepage:${VERSION} .
+docker build -t colinbruner/homepage:${VERSION} .
