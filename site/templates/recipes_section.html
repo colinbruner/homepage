@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% import "macros.html" as macros %}
+
+{% block htmltitle %}
+    {{ macros::title_or_last(component=section) }} - {{ config.title }}
+{% endblock htmltitle %}
+
+{% block title %}
+    {{ macros::title_or_last(component=section) }}
+{% endblock title %}
+
+{% block content %}
+<p>{{ section.content | safe }}</p>
+<ul>
+    {% for sub in section.subsections %}
+        {% set subsection = get_section(path=sub) %}
+        <li>
+            <a href="{{ subsection.title | lower }}">{{ macros::title_or_last(component=subsection, offset=0) }}</a>
+        </li>    
+    {% endfor %}
+</ul>
+{% endblock content %}

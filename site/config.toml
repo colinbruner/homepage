@@ -16,11 +16,12 @@ build_search_index = false
 menu = [
     { text = "about", link = "/about" },
     { text = "travel", link = "/travel" },
-    { text = "resume", link = "/resume" },
-    { text = "github", link = "https://github.com/colinbruner" }
+    { text = "resume", link = "/resume.pdf" },
+    { text = "github", link = "https://github.com/colinbruner" },
+    { text = "recipes", link = "/recipes" }
 ]
 
 bottom_menu = true
 
 [extra.footer]
-text = "Written using Zola. Served on a Raspberry Pi k3s cluster."
+text = "Written using Zola. Served on my home Raspberry Pi k3s cluster."
