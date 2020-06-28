@@ -8,4 +8,5 @@ jobs:
       - setup_remote_docker
       - run: |
           echo "Building Homepage"
-          docker build -t colinbruner/homepage:latest
+          ls -l
+          docker build -t colinbruner/homepage:latest .
