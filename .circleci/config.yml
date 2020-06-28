@@ -1,10 +1,12 @@
 version: 2
 jobs:
   build:
-    machine: true
+    docker:
+      - image: circleci/golang:1.13-alpine
     steps:
       - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run: |
-          env
           echo "Building Homepage"
-          ./build.sh
+          docker build -t colinbruner/homepage:latest
