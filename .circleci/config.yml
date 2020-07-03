@@ -5,10 +5,11 @@ jobs:
     steps:
       - checkout
       - run: ./build.sh
+      - run: pwd
       - run: ls -l
       # Generated site assets
       - persist_to_workspace:
-          root: public
+          root: ./public
 
   build_image:
     docker:
