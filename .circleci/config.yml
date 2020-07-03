@@ -4,9 +4,7 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - run: mkdir -p workspace
       - run: ./build.sh
-      - run: mv public workspace/
       # Generated site assets
       - persist_to_workspace:
           root: workspace
