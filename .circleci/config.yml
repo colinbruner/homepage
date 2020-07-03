@@ -5,12 +5,19 @@ jobs:
     steps:
       - checkout
       - run: ./build.sh
+      # Generated site assets
+      - persist_to_workspace:
+          root: public
+
   build_image:
     docker:
       - image: docker:latest
     steps:
       - checkout
       - setup_remote_docker
+      - attach_workspace:
+          # Relative path to to current working directory
+          at: public
       - run: |
           echo "Building Homepage"
           ls -l
@@ -20,5 +27,7 @@ workflows:
   build_site_and_image:
     jobs:
       - build_site
-      - build_image
+      - build_image:
+          requires:
+            - build_site
 
