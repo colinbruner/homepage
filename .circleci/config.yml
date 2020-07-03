@@ -20,5 +20,5 @@ workflows:
   build_site_and_image:
     jobs:
       - build_site
-      - build_docker
+      - build_image
 
