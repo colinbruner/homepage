@@ -4,12 +4,12 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
-      - run: ./build.sh
+      - run: cd site && ./build.sh
       - run: pwd
       - run: ls -l
       # Generated site assets
       - persist_to_workspace:
-          root: ./public
+          root: site
 
   build_image:
     docker:
@@ -19,7 +19,7 @@ jobs:
       - setup_remote_docker
       - attach_workspace:
           # Relative path to to current working directory
-          at: public
+          at: site
       - run: |
           echo "Building Homepage"
           ls -l
