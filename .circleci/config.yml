@@ -20,9 +20,16 @@ jobs:
           # Relative path to to current working directory
           at: workspace
       - run: |
+          echo "Logging into Docker hub"
+          echo ${DOCKER_PASSWORD} | docker login --username ${DOCKER_USER} --password-stdin
+
           echo "Building Homepage"
-          ls -l
           docker build -t colinbruner/homepage:latest .
+          docker build -t colinbruner/homepage:build-${CIRCLE_BUILD_NUM} .
+
+          echo "Pushing image"
+          docker push colinbruner/homepage:latest
+          docker push colinbruner/homepage:build-${CIRCLE_BUILD_NUM}
 workflows:
   version: 2
   build_site_and_image:
