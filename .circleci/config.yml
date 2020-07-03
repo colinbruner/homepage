@@ -1,24 +1,24 @@
 jobs:
-  build-site:
+  build_site:
     docker:
       - image: cimg/base:latest
     steps:
       - checkout
       - run: ./build.sh
-  build-docker:
+  build_image:
     docker:
       - image: docker:latest
-      - setup_remote_docker
     steps:
       - checkout
+      - setup_remote_docker
       - run: |
           echo "Building Homepage"
           ls -l
           docker build -t colinbruner/homepage:latest .
 workflows:
   version: 2
-  build_and_test:
+  build_site_and_image:
     jobs:
-      - build-site
-      - build-docker
+      - build_site
+      - build_docker
 
