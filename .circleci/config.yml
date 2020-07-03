@@ -20,5 +20,5 @@ workflows:
   build_and_test:
     jobs:
       - build-site
-      - buld-docker
+      - build-docker
 
