@@ -25,3 +25,4 @@ fi
 
 echo "Moving 'public/' into 'workspace/'"
 mv public workspace/
+find workspace/public -name "*.png" -exec rm -f {} \;
