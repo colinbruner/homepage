@@ -38,6 +38,8 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
             successThreshold: 1
+      nodeSelector:
+        kubernetes.io/arch: arm
       volumes:
         - name: tls-volume
           secret:
