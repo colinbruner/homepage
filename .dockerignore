@@ -1,2 +1,5 @@
-site/public
-.git*
+/*
+/*/
+.*
+!/workspace/
+!/nginx/config
