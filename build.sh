@@ -7,12 +7,13 @@ ARCH=$(uname)
 echo "Cleaning then && creating workspace dir"
 rm -rf workspace && mkdir -p workspace
 
-if [[ ARCH == 'Linux' ]]; then
+if [[ $ARCH == 'Linux' ]]; then
     if ! $(which wget &>/dev/null); then
         echo "Installing wget"
         apt update && apt install -y wget
     fi
 
+    echo "Downloading Zola binary"
     wget -c https://github.com/getzola/zola/releases/download/${ZOLA}/zola-${ZOLA}-x86_64-unknown-linux-gnu.tar.gz -O - | tar -xz
     echo "Generating Site"
     ./zola -r site build
