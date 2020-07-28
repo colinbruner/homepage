@@ -20,8 +20,6 @@ spec:
       labels:
         app: web
     spec:
-      imagePullSecrets:
-        - name: registrykey
       containers:
         - name: web
           image: cbruner/homepage:latest
@@ -29,8 +27,9 @@ spec:
             - containerPort: 80
             - containerPort: 443
           volumeMounts:
-            - name: tls-volume
+            - name: certs-volume
               mountPath: /etc/nginx/secrets
+              readOnly: true
           readinessProbe:
             httpGet:
               path: /
@@ -41,6 +40,6 @@ spec:
       nodeSelector:
         kubernetes.io/arch: arm
       volumes:
-        - name: tls-volume
+        - name: certs-volume
           secret:
-            secretName: homepage-tls
+            secretName: homepage-certs
