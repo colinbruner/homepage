@@ -4,6 +4,10 @@ k3s yaml files for deploying colinbruner.com homepage on a raspberry pi cluster.
 ## Deployment
 To future me, who may or may not need this file.
 
+```bash
+alias k=kubectl
+```
+
 1. Decrypt secrets.yaml.gpg - this is encrypted with your personal GPG key.
 2. Create the homepage namespace.
 3. Create the secret for pulling private docker repos.
