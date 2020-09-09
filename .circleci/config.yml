@@ -1,5 +1,5 @@
 jobs:
-  build_site:
+  generate_site:
     docker:
       - image: cimg/base:stable
     steps:
@@ -7,7 +7,7 @@ jobs:
       - run: cd site && ./build.sh
       # Generated site assets
       - persist_to_workspace:
-          root: workspace
+          root: site/workspace
           paths:
             - public
   build_and_push_image:
@@ -41,8 +41,8 @@ workflows:
   version: 2
   build_site_and_image:
     jobs:
-      - build_site
+      - generate_site
       - build_and_push_image:
           requires:
-            - build_site
+            - generate_site
 
