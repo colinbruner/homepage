@@ -17,7 +17,7 @@ if [[ $ARCH == 'Linux' ]]; then
     if ! $(which zola &>/dev/null); then
         echo "Downloading Zola binary"
         wget -c https://github.com/getzola/zola/releases/download/${ZOLA}/zola-${ZOLA}-x86_64-unknown-linux-gnu.tar.gz -O - | tar -xz
-        mv zola /usr/bin/zola
+        export PATH="$PATH:$PWD"
     fi
 fi
 
