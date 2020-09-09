@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "initializing"
+pre-build:
+  commands:
+    - echo "building public files"
+    - ./build.sh
+build:
+  commands:
+    - echo "syncing build"
+    - aws s3 sync build/ s3://build.colinbruner.com
+post_build:
+  commands:
+    - echo "Finishing up"
