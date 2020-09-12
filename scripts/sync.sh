@@ -7,7 +7,7 @@ if ! $(which aws &>/dev/null); then
     pip3 install awscli --upgrade --user
 fi
 
-if [[ -f "workspace/public" ]]; then
+if [[ ! -d "workspace/public" ]]; then
     cd workspace/public
     aws s3 sync . s3://s3.colinbruner.com/
 else
