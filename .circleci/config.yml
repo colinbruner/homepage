@@ -11,7 +11,8 @@ jobs:
           paths:
             - public
   sync_to_s3:
-    executor: aws-cli/default
+    docker:
+      - image: amazon/aws-cli
     steps:
       - checkout
       - aws-cli/setup:
