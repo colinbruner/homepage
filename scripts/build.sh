@@ -4,8 +4,8 @@
 ZOLA="v0.12.0"
 ARCH=$(uname)
 
-echo "Cleaning then && creating workspace dir"
-rm -rf workspace && mkdir -p workspace
+echo "Cleaning the 'site/public' dir"
+rm -rf site/public
 
 # Install Zola on Linux
 if [[ $ARCH == 'Linux' ]]; then
@@ -24,12 +24,8 @@ fi
 
 # Assume zola is already installed in PATH on Darwin...
 echo "Generating Site"
-zola build
+cd site && zola build
 
 # Remove high def images from travel
 echo "Removing non-processed images"
 find public/travel -name "*.png" -exec rm -f {} \;
-
-ls -l
-ls -l public/
-pwd
