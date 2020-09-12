@@ -1,6 +1,6 @@
 +++
 title = "Recipes"
-template = "recipes_section.html"
+template = "recursive_section.html"
 sort_by = "weight"
 +++
 
