@@ -1,0 +1,31 @@
+jobs:
+  build_and_push_image:
+    environment:
+      IMAGE_NAME: cbruner/homepage
+    docker:
+      - image: docker:latest
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: 
+          name: Build Image
+          command: |
+            echo "Building Image"
+            docker build -t $IMAGE_NAME:latest .
+            docker build -t $IMAGE_NAME:build-${CIRCLE_BUILD_NUM} .
+
+      - run:
+          name: Login and Push Image
+          command: |
+            echo "Logging into DockerHub"
+            echo $DOCKER_PASSWORD | docker login -u $DOCKER_USER --password-stdin
+            echo "Pushing image"
+            docker push $IMAGE_NAME:latest
+            docker push $IMAGE_NAME:build-${CIRCLE_BUILD_NUM}
+
+workflows:
+  version: 2
+  build_image:
+    jobs:
+      - build_and_push_image
+
