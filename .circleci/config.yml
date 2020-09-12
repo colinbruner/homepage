@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Sync s3 
           command: |
-            echo "Syncing generated 'public/' dir to s3"
+            echo "Running ./scripts/sync.sh"
             ./scripts/sync.sh
 workflows:
   version: 2
