@@ -19,6 +19,7 @@ if [[ $ARCH == 'Linux' ]]; then
         wget -c https://github.com/getzola/zola/releases/download/${ZOLA}/zola-${ZOLA}-x86_64-unknown-linux-gnu.tar.gz -O - | tar -xz
         export PATH="$PATH:$PWD"
     fi
+
 fi
 
 # Assume zola is already installed in PATH on Darwin...
@@ -28,6 +29,3 @@ zola build
 # Remove high def images from travel
 echo "Removing non-processed images"
 find public/travel -name "*.png" -exec rm -f {} \;
-
-echo "Moving 'public/' into 'workspace/'"
-mv public workspace/

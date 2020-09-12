@@ -7,9 +7,7 @@ jobs:
       - run: cd site && ./build.sh
       # Generated site assets
       - persist_to_workspace:
-          root: site/workspace
-          paths:
-            - public
+          root: public
   sync_to_s3:
     docker:
       - image: cimg/python:3.8
