@@ -2,8 +2,8 @@
 
 BRANCH=$(git symbolic-ref --short HEAD)
 
-if [[ -f "site/workspace/public" ]]; then
-    cd site/workspace/public
+if [[ -f "workspace/public" ]]; then
+    cd workspace/public
     aws s3 sync . s3://s3.colinbruner.com/
 else
     echo "Current path: $(PWD)"

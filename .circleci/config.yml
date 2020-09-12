@@ -10,6 +10,19 @@ jobs:
           root: site/workspace
           paths:
             - public
+  sync_to_s3:
+    executor: aws-cli/default
+    steps:
+      - checkout
+      - aws-cli/setup:
+          profile-name: homepage
+      - attach_workspace:
+          at: workspace
+      - run:
+          name: Sync s3 
+          command: |
+            echo "Syncing 'workspace/public' to s3"
+            ./scripts/sync.sh
   build_and_push_image:
     environment:
       IMAGE_NAME: cbruner/homepage
@@ -18,9 +31,6 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - attach_workspace:
-          # Relative path to to current working directory
-          at: workspace
       - run: 
           name: Build Image
           command: |
@@ -42,6 +52,7 @@ workflows:
   build_site_and_image:
     jobs:
       - generate_site
+      - sync_to_s3
       - build_and_push_image:
           requires:
             - generate_site
