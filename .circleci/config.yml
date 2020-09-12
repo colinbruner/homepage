@@ -12,7 +12,7 @@ jobs:
             - public
   sync_to_s3:
     docker:
-      - image: mesosphere/aws-cli
+      - image: cimg/python:3.8
     steps:
       - checkout
       - attach_workspace:
