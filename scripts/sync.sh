@@ -1,4 +1,4 @@
-#!/bin/bash -eo pipefail
+#!/bin/bash
 
 branch=$(git symbolic-ref --short -q HEAD)
 
