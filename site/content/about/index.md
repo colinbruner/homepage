@@ -2,7 +2,7 @@
 title = "About Me"
 +++
 
-Welcome! My name is Colin Bruner; I'm an IT Engineer living in Arlington, Virginia. 
+Welcome, my name is Colin Bruner; I'm an IT Engineer living in Arlington, Virginia. 
 I've decided to set up this blog initially to be something of an "example app";
 it's running on a home cluster of [raspberry pi][rpi] using [k3s][k3s].
 However, I think I'd like to build it out and write a little bit about me 
