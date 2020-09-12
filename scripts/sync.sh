@@ -7,13 +7,13 @@ if ! $(which aws &>/dev/null); then
     pip3 install awscli --upgrade --user
 fi
 
-if [[ ! -d "workspace/public" ]]; then
-    cd workspace/public
+# The generated public directory gets mounted in the root of this directory
+# post generate site stage within circleci
+if [[ ! -d "public/" ]]; then
+    cd public/
     aws s3 sync . s3://s3.colinbruner.com/
 else
     echo "Current path: $PWD"
-    ls -l 
-    ls -l workspace/
     echo "Unable to find workspace/public directory. Were site assets generated?"
 fi
 
