@@ -54,7 +54,9 @@ workflows:
   build_site_and_image:
     jobs:
       - generate_site
-      - sync_to_s3
+      - sync_to_s3:
+          requires:
+            - generate_site
       - build_and_push_image:
           requires:
             - generate_site
