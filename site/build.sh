@@ -29,3 +29,7 @@ zola build
 # Remove high def images from travel
 echo "Removing non-processed images"
 find public/travel -name "*.png" -exec rm -f {} \;
+
+ls -l
+ls -l public/
+pwd
