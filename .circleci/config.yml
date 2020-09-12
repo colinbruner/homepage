@@ -12,7 +12,7 @@ jobs:
             - public
   sync_to_s3:
     docker:
-      - image: amazon/aws-cli
+      - image: mesosphere/aws-cli
     steps:
       - checkout
       - attach_workspace:
