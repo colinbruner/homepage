@@ -15,8 +15,6 @@ jobs:
       - image: amazon/aws-cli
     steps:
       - checkout
-      - aws-cli/setup:
-          profile-name: homepage
       - attach_workspace:
           at: workspace
       - run:
