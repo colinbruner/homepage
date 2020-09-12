@@ -10,6 +10,7 @@ jobs:
           root: site/
           paths:
             - public
+
   sync_to_s3:
     docker:
       - image: cimg/python:3.8
@@ -20,7 +21,7 @@ jobs:
       - run:
           name: Sync s3 
           command: |
-            echo "Syncing 'workspace/public' to s3"
+            echo "Syncing generated 'public/' dir to s3"
             ./scripts/sync.sh
   build_and_push_image:
     environment:
