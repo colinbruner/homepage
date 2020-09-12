@@ -9,7 +9,7 @@ fi
 
 # The generated public directory gets mounted in the root of this directory
 # post generate site stage within circleci
-if [[ ! -d "public/" ]]; then
+if [[ -d "public/" ]]; then
     cd public/
     aws s3 sync . s3://s3.colinbruner.com/
 else
