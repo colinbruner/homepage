@@ -1,6 +1,6 @@
 # The URL the site will be built for
 #base_url = "http://0.0.0.0" # dev testing
-base_url = "/"
+base_url = "localhost"
 
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
@@ -31,4 +31,4 @@ show_reading_time = true
 bottom_menu = true
 
 [extra.footer]
-text = "Written using Zola. Served on my home Raspberry Pi k3s cluster."
+text = "Written using Zola. Served in an S3 bucket on AWS."
