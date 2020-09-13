@@ -12,6 +12,10 @@ highlight_code = false
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
+taxonomies = [
+    {name = "tags", feed = true}, # each tag will have its own feed
+]
+
 [extra]
 menu = [
     { text = "about", link = "/about" },
@@ -20,6 +24,9 @@ menu = [
     { text = "resume", link = "/resume.pdf" },
     { text = "github", link = "https://github.com/colinbruner" }
 ]
+
+show_word_count = true
+show_reading_time = true
 
 bottom_menu = true
 
