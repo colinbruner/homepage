@@ -21,7 +21,7 @@ picture or map detailing the landscape prior to beginning.
 I began with a few critical AWS services:
 - Elastic Load Balancing
 - AWS Fargate
-- AWS S3
+- AWS s3
 
 I host my domain on CloudFlare and created a CNAME record for the root of my 
 domain, colinbruner.com, to the DNS name of my AWS load balancer object. I 
@@ -34,23 +34,36 @@ CloudFlare and map them to an AWS target group associated to the ELB.
 The target group contains three container tasks running in an AWS Elastic
 Container Service (ECS) Fargate cluster. The containers are very simple 
 NGINX proxys intended to handle the mapping of the requests to the appropriate
-S3 static website directory. More on that later.
+s3 static website bucket. More on that later.
 
 ## NGINX
 
 {{ gist(url="https://gist.github.com/colinbruner/6a5ec95a0589081c9de2a7c9ea1267e8") }}
 
-As you can see above, I'm using a conditional based off of the requesting URL and the proxy_pass 
-directive to forward the request onto the correct S3 directory. This enables me to use the 
-[develop][1] subdomain to view my changes in PROD before merging into the master branch
-and allowing the CI/CD process to deploy the changes.
+As you can see above, I'm using a conditional based off of the requesting URL and the 
+proxy_pass directive to forward the request onto the correct s3 bucket. This enables 
+me to use the [develop][1] subdomain to view my changes on PROD infrastructure before 
+redirecting traffic there by merging my changes into a master branch and allowing the 
+CI/CD process to push the changes to the master s3 bucket.
+
+## AWS Simple Storage Service (s3)
+I have to give s3 its own section. The ability to just `aws sync` up to a remote bucket
+and have it instantly deployed to an environment by an NGINX reverse proxy.
+
+My current setup contains 3 buckets with the following names:
+- testing.colinbruner.com
+- develop.colinbruner.com
+- master.colinbruner.com
+
+Do I really need a 'testing' environment for this level of complexity? Not really! But 
+it's simple enough and three seems a better number than two.
 
 ## CI/CD
 I'm using [CircleCI][2] to build and deploy my website with a few lines of 
 straightforward YAML. As defined in my [config][3], I'm doing the following within two 
 shell scripts.
 - Installing necessary dependencies and genearting this website using [Zola][4].
-- Sync assets to an S3 directory matching the active git branch in my S3 bucket.
+- Sync assets to an s3 bucket matching the active git branch in my s3 bucket.
 
 This combined with the CNAME redirection to the 'develop' subdomain provide an
 easy near-live preview to any changes I'm looking to deploy.
