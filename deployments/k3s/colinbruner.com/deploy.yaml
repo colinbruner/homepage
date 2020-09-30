@@ -25,21 +25,12 @@ spec:
           image: cbruner/homepage:latest
           ports:
             - containerPort: 80
-            - containerPort: 443
-          volumeMounts:
-            - name: certs-volume
-              mountPath: /etc/nginx/secrets
-              readOnly: true
-          readinessProbe:
-            httpGet:
-              path: /
-              port: 80
-            initialDelaySeconds: 5
-            periodSeconds: 5
-            successThreshold: 1
-      nodeSelector:
-        kubernetes.io/arch: arm
-      volumes:
-        - name: certs-volume
-          secret:
-            secretName: homepage-certs
+              #readinessProbe:
+              #  httpGet:
+              #    path: /
+              #    port: 80
+              #  initialDelaySeconds: 5
+              #  periodSeconds: 5
+              #  successThreshold: 1
+      #nodeSelector:
+        #kubernetes.io/arch: arm
