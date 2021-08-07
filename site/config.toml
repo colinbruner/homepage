@@ -16,6 +16,9 @@ taxonomies = [
 ]
 
 [extra]
+# The domain to use for CloudFront CDN
+cloudfront_domain = "https://d2i7ehundc20a4.cloudfront.net"
+
 menu = [
     { text = "about", link = "/about" },
     { text = "posts", link = "/posts" },

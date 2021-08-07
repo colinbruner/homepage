@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Intended to be run on a Debian variant
-ZOLA="v0.12.0"
+ZOLA="v0.14.0"
 ARCH=$(uname)
 
 echo "Cleaning the 'site/public' dir"
@@ -22,10 +22,15 @@ if [[ $ARCH == 'Linux' ]]; then
 
 fi
 
+# Build for PROD
+export ZOLA_ENV="production"
+
 # Assume zola is already installed in PATH on Darwin...
 echo "Generating Site"
 cd site && zola build
 
-# Remove high def images from travel
-echo "Removing non-processed images"
-find public/travel -name "*.png" -exec rm -f {} \;
+echo "Uploading processed images to s3"
+aws s3 sync public/processed_images s3://media.colinbruner.com/processed_images/
+
+echo "Removing all local non-processed images"
+find public/ -name "*.png" -exec rm -f {} \;

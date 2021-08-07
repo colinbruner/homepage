@@ -1,12 +1,16 @@
 
-<section class="grid">
+<div>
 {% for asset in page.assets %}
-  {% if asset is matching("[.](jpg|png)$") %}
-  <div>
-    <a href="{{ resize_image(path=asset, width=960, height=720, op="fill") }}">
-      <img src="{{ resize_image(path=asset, width=960, height=720, op="fill") }}" alt="">
+  {%- if asset is matching("[.](jpg|png)$") -%}
+    {% set image = resize_image(path=asset, width=960, height=720) %}
+    <a href="{{ get_url(path=asset) }}" target="_blank">
+      {% if get_env(name="ZOLA_ENV", default="development") == "production" %}
+        {% set processed_image_name = image.static_path | split(pat="/") | last | safe %}
+        <img src="{{ config.extra.cloudfront_domain }}/{{ processed_image_name }}" />
+      {% else %}
+        <img src={{ image.url }} />
+      {% endif %}
     </a>
-  </div>
   {% endif %}
 {% endfor %}
-</section>
+</div>

@@ -2,3 +2,6 @@
 nginx/secrets/*
 site/public/*
 site/workspace/*
+
+# Processed Images
+**/processed_images**

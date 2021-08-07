@@ -11,8 +11,8 @@ jobs:
           name: Build Image
           command: |
             echo "Building Image"
-            docker build -t $IMAGE_NAME:latest .
-            docker build -t $IMAGE_NAME:build-${CIRCLE_BUILD_NUM} .
+            docker build -f deployments/docker/Dockerfile -t $IMAGE_NAME:latest .
+            docker build -f deployments/docker/Dockerfile -t $IMAGE_NAME:build-${CIRCLE_BUILD_NUM} .
 
       - run:
           name: Login and Push Image
