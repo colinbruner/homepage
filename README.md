@@ -1,5 +1,4 @@
 # Homepage
-
 A personal website to mess around with and practice deploying to a k3s raspberry pi cluster.
 
 ## Notes
