@@ -2,7 +2,7 @@
 <div>
 {% for asset in page.assets %}
   {%- if asset is matching("[.](jpg|png)$") -%}
-    {% set image = resize_image(path=asset, width=960, height=720) %}
+    {% set image = resize_image(path=asset, width=960, height=720, format="webp") %}
     <a href="{{ get_url(path=asset) }}" target="_blank">
       {% if get_env(name="ZOLA_ENV", default="development") == "production" %}
         {% set processed_image_name = image.static_path | split(pat="/") | last | safe %}

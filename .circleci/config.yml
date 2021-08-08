@@ -5,29 +5,8 @@ jobs:
     steps:
       - checkout
       - run: ./scripts/build.sh
-      # Generated site assets
-      - persist_to_workspace:
-          root: site/
-          paths:
-            - public
-  sync_to_s3:
-    docker:
-      - image: cimg/python:3.8
-    steps:
-      - checkout
-      - attach_workspace:
-          at: workspace
-      - run:
-          name: Sync s3 
-          command: |
-            echo "Running ./scripts/sync.sh"
-            ./scripts/sync.sh
 workflows:
   version: 2
   generate_and_sync_site:
     jobs:
       - generate_site
-      - sync_to_s3:
-          requires:
-            - generate_site
-
