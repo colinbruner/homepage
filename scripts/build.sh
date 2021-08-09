@@ -24,7 +24,7 @@ function init() {
     if [[ $ARCH == 'Linux' ]]; then
         if ! $(which pip3 &>/dev/null); then
             echo "Installing pip3"
-            apt update -y && apt install -y python3-pip
+            sudo apt update -y && sudo apt install -y python3-pip
         fi
 
         if ! $(which zola &>/dev/null); then
