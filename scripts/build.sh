@@ -22,9 +22,9 @@ function clean() {
 function init() {
     # Install Zola on Linux
     if [[ $ARCH == 'Linux' ]]; then
-        if ! $(which wget &>/dev/null); then
-            echo "Installing wget, pip3"
-            apt update -y && apt install -y wget python3-pip
+        if ! $(which pip3 &>/dev/null); then
+            echo "Installing pip3"
+            apt update -y && apt install -y python3-pip
         fi
 
         if ! $(which zola &>/dev/null); then
