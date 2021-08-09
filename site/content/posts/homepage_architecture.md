@@ -1,5 +1,6 @@
 +++
 title = "Homepage Architecture"
+draft = true
 
 [taxonomies]
 tags = ["Personal", "IT Infrastructure"]

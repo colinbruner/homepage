@@ -3,29 +3,19 @@ title = "About Me"
 +++
 
 Welcome! My name is Colin Bruner; I'm an IT Engineer living in Arlington, Virginia. 
-I've decided to set up this blog initially to be something of an "example app";
-it's running on a home cluster of [raspberry pi][rpi] using [k3s][k3s].
-However, I think I'd like to build it out and write a little bit about me 
-personally.
+I've decided to set up this little blog as an excuse to setup some infrastructure and
+maybe even share some thoughts.
 
 So, about me!
 
-Professionally, I enjoy IT and designing services/applications. My current 
-professional endeavor is leading the design of [saltstack][salt] on 20k 
-hosts in both traditional "on-prem" and [private-cloud][oss] environments.
-
-At home, I tinker with various automation projects using Salt, learning k3s,
-and HAProxy. I'm also learning [rust][rust], which has been an incredibly 
-novel process for me given the lack formal computer science background.
+Professionally, I enjoy IT and designing services/applications. Most of my
+work takes place within AWS using [Terraform][terraform] to build and orchestrate
+cloud resources. A lot of my recent focus has been in moving towards using ECS
+as a container scheduling and orchestration platform.
 
 Personally, I enjoy being with family and friends, riding bikes and baking 
-food with my girlfriend, drinking craft beer or wine, reading books 
+food with my fiancée, drinking craft beer or wine, reading books 
 (Sci-Fi, Fantasy, Historical, and Philosophy), lifting weights at the gym, 
 and just being outside in the sunlight.
 
-[rpi]: https://www.raspberrypi.org/
-[k3s]: https://github.com/rancher/k3s
-[salt]: https://www.saltstack.com/
-[oss]: https://www.openstack.org/
-[rust]: https://www.rust-lang.org/
-
+[terraform]: https://www.terraform.io/

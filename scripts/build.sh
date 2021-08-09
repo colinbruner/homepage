@@ -4,6 +4,9 @@
 ZOLA="v0.14.0"
 ARCH=$(uname)
 
+# Get abs path of script
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 function msg() {
     # Lazy stdout message generator
     echo "##########################"
@@ -45,7 +48,7 @@ function main() {
 
     # Assume zola is already installed in PATH on Darwin...
     msg "Generating Site"
-    cd site && zola build
+    cd ${SCRIPT_DIR}/../site && zola build
 
     msg "Syncing public/processed_images/ images to s3://media.colinbruner.com/processed_images/"
     aws s3 sync public/processed_images s3://media.colinbruner.com/processed_images/
