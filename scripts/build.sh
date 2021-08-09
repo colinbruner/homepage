@@ -23,8 +23,8 @@ function init() {
     # Install Zola on Linux
     if [[ $ARCH == 'Linux' ]]; then
         if ! $(which wget &>/dev/null); then
-            echo "Installing wget"
-            apt update -y && apt install -y wget
+            echo "Installing wget, pip3"
+            apt update -y && apt install -y wget python3-pip
         fi
 
         if ! $(which zola &>/dev/null); then
@@ -35,7 +35,6 @@ function init() {
 
         if ! $(which aws &>/dev/null); then
             echo "Downloading awscli"
-            # We'll assume the running image has `pip3` installed
             pip3 install awscli --upgrade --user
         fi
     fi
