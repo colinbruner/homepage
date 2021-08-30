@@ -1,8 +1,7 @@
 **.DS_Store**
 
-nginx/secrets/*
-site/public/*
-site/workspace/*
+public/*
+workspace/*
 
 # Processed Images
 **/processed_images**

@@ -1,11 +1,26 @@
 # Homepage
-A personal website to mess around with and practice deploying to a k3s raspberry pi cluster.
+The following is the content for colinbruner.com
 
-## Notes
-The prod container expects certificates to be mounted in /etc/nginx/secrets for the nginx 
-process... this is accomplished through k3s volume mounts.
+# Local Development
+Statically generated with `zola`, from this directory run the following to serve
+with active reload.
 
-## Credits
-Written using Zola and the [Sam Theme][st]
+```bash
+$ zola serve
+```
 
-[st]: https://www.getzola.org/themes/sam/
+# Building / Deploying
+Building and deploying the static site is done with `./scripts/build.sh`. 
+
+Ensure AWS_PROFILE is correct and run the following:
+```bash
+# To deploy to dev endpoint
+$ ZOLA_ENV=development ./scripts/build.sh
+
+# To deploy to prod endpoint
+$ ./scripts/build.sh
+```
+
+# Credit
+
+Theme credit to the Zola's [Sam Theme][https://github.com/trevordmiller/zola-sam]
