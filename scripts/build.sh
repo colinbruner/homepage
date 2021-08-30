@@ -47,7 +47,7 @@ function main() {
 
     # Assume zola is already installed in PATH on Darwin...
     msg "Generating Site"
-    cd ${SCRIPT_DIR}/../site && zola build
+    cd ${SCRIPT_DIR}/.. && zola build
 
     msg "Syncing public/processed_images/ images to s3://media.colinbruner.com/processed_images/"
     aws s3 sync public/processed_images s3://media.colinbruner.com/processed_images/
