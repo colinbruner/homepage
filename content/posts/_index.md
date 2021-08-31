@@ -1,4 +1,4 @@
 +++
 title = "Posts"
-template = "section.html"
+template = "recursive_section.html"
 +++

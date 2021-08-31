@@ -1,0 +1,9 @@
+<div>
+{% for asset in page.assets %}
+  {%- if asset is ending_with(img) -%}
+    <a href="{{ img }}" target="_blank">
+      <img src="{{ img }}" />
+    </a>
+  {% endif %}
+{% endfor %}
+</div>
