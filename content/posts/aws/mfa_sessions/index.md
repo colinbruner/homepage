@@ -214,6 +214,8 @@ aws_gen_session() {
     echo "Error: $? - something went wrong."
   fi
 }
+
+aws_gen_session "$@"
 ```
 
 As you can see, we’re really just wrapping all of the above functions and scripts into one command flow. 
